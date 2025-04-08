@@ -6,6 +6,8 @@ public class PortalManager : MonoBehaviour
 {
     public GameObject EnemyPrefab;
     public float EnemyPeriod;
+
+    public GameObject spawnVfx;
     void Start()
     {
         InvokeRepeating("InvokeEnemy", 0, EnemyPeriod);
@@ -14,5 +16,7 @@ public class PortalManager : MonoBehaviour
     void InvokeEnemy()
     {
         Instantiate(EnemyPrefab, transform.position, transform.rotation);
+        Instantiate(spawnVfx, transform.position, transform.rotation);
+
     }
 }

@@ -16,6 +16,11 @@ public class EnemyController : MonoBehaviour
     Vector2 PreviousPlayerDirection;
     Rigidbody2D rb;
     BoxCollider2D col;
+
+    [Header("vfx")]
+    public GameObject deathVfx;
+    public GameObject hitVfx;
+    private Vector3 deathLocVfxSpawn = new Vector3 (0, -0.7f, 0);
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +46,7 @@ public class EnemyController : MonoBehaviour
         if(Health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(deathVfx, transform.position + deathLocVfxSpawn, Quaternion.identity);
         }
 
         if(Speed <= 0)
@@ -53,6 +59,7 @@ public class EnemyController : MonoBehaviour
     public void GetDamage(float dmg)
     {
         Health -= dmg;
+        Instantiate(hitVfx, transform.position, Quaternion.identity);
     }
 
     void RotateTowardsPlayer()

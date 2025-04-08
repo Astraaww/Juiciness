@@ -15,11 +15,15 @@ public class PlayerController : MonoBehaviour
     public int AirJumps = 1; // Max Amount Of Air Jumps, Set It To 0 If You Dont Want To Jump In The Air
     public LayerMask jumpableLayer; // The Layers That Represent The Ground, Any Layer That You Want The Player To Be Able To Jump In
 
+    public GameObject jumpVfx;
+
     [Header("Dashing")]
     public float DashPower = 3; // It Is A Speed Multiplyer, A Value Of 2 - 3 Is Recommended.
     public float DashDuration = 0.20f; // Duration Of The Dash In Seconds, Recommended 0.20f.
     public float DashCooldown = 0.5f; // Duration To Be Able To Dash Again.
     public bool AirDash = true; // Can Dash In Air ?
+    
+    public GameObject dashVfx;
 
     [Header("Attacking")]
     public GameObject BulletPrefab;
@@ -119,7 +123,7 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-
+        Instantiate(jumpVfx, transform.position, Quaternion.identity);
         if (InTheGround())
         {
             rb.linearVelocity = Vector2.up * JumpPower;
@@ -165,6 +169,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Dash()
     {
         canDash = false;
+        Instantiate(dashVfx, transform.position, Quaternion.identity);
         float originalSpeed = Speed; 
        
         Speed *= DashPower;
