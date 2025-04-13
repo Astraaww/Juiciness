@@ -21,6 +21,11 @@ public class EnemyController : MonoBehaviour
     public GameObject deathVfx;
     public GameObject hitVfx;
     private Vector3 deathLocVfxSpawn = new Vector3 (0, -0.7f, 0);
+
+    [Header("sfx")]
+    public AudioSource source;
+    public AudioClip deathSfx;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,8 +50,9 @@ public class EnemyController : MonoBehaviour
         //Die
         if(Health <= 0)
         {
-            Destroy(gameObject);
             Instantiate(deathVfx, transform.position + deathLocVfxSpawn, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(deathSfx, transform.position);
+            Destroy(gameObject);
         }
 
         if(Speed <= 0)
@@ -56,10 +62,24 @@ public class EnemyController : MonoBehaviour
         //Debug.Log(Speed);
     }
 
+    IEnumerator DeathCoroutine()
+    {
+        
+        
+
+        yield return new WaitForSeconds(1);
+
+        
+    }
+
     public void GetDamage(float dmg)
     {
         Health -= dmg;
         Instantiate(hitVfx, transform.position, Quaternion.identity);
+
+        //source.clip = deathSfx;
+        //source.Play();
+
     }
 
     void RotateTowardsPlayer()

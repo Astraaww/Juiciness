@@ -34,7 +34,12 @@ public class PlayerController : MonoBehaviour
 
     float MoveDirection;
     int currentJumps = 0;
- 
+
+    [Header("Sfx")]
+    public AudioSource source;
+    public AudioClip jumpSfx;
+    public AudioClip shootSfx;
+    public AudioClip dashSfx;
     Rigidbody2D rb;
     BoxCollider2D col; // Change It If You Use Something Else That Box Collider, Make Sure You Update The Reference In Start Function
 
@@ -123,10 +128,15 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        Instantiate(jumpVfx, transform.position, Quaternion.identity);
+
         if (InTheGround())
         {
             rb.linearVelocity = Vector2.up * JumpPower;
+
+
+            Instantiate(jumpVfx, transform.position, Quaternion.identity);
+            source.clip = jumpSfx;
+            source.Play();
         }
         else
         {
@@ -135,6 +145,11 @@ public class PlayerController : MonoBehaviour
 
             currentJumps ++;
             rb.linearVelocity = Vector2.up * JumpPower;
+
+
+            Instantiate(jumpVfx, transform.position, Quaternion.identity);
+            source.clip = jumpSfx;
+            source.Play();
         }
 
     }
@@ -142,6 +157,10 @@ public class PlayerController : MonoBehaviour
     void Attack()
     {
         Instantiate(BulletPrefab, transform.position, transform.rotation);
+
+        source.clip = shootSfx;
+        source.Play();
+
     }
 
     void RotateToMoveDirection()
@@ -170,6 +189,8 @@ public class PlayerController : MonoBehaviour
     {
         canDash = false;
         Instantiate(dashVfx, transform.position, Quaternion.identity);
+        source.clip = dashSfx;
+        source.Play();
         float originalSpeed = Speed; 
        
         Speed *= DashPower;
