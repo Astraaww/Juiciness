@@ -855,6 +855,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54355dacce05c084ebd36000dd6069d4, type: 3}
+--- !u!1001 &2143106308
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905802793412626386, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270954644967444177, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
 --- !u!1001 &5741189469976262256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,7 +1077,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
       propertyPath: Speed
-      value: 250
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
+      propertyPath: AirDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
+      propertyPath: Gravity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
       propertyPath: dashVfx
@@ -1031,9 +1096,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
     - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
-      propertyPath: JumpPower
-      value: 15
+      propertyPath: AirJumps
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
+      propertyPath: DashPower
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
+      propertyPath: JumpPower
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 4270954644967444177, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
     - target: {fileID: 7696167157940194100, guid: 901506c11712dbc42a0885676fe718b5, type: 3}
       propertyPath: jumpableLayer.m_Bits
       value: 8
@@ -1121,3 +1198,4 @@ SceneRoots:
   - {fileID: 1052186280}
   - {fileID: 7696167159711966960}
   - {fileID: 1338491957}
+  - {fileID: 2143106308}
