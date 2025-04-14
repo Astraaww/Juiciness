@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float Speed = 450;
-    private bool RotateToDirection = false; // Rotate To The Movement Direction
-    private bool RotateWithMouseClick = false; // Rotate To The Direction Of The Mouse When Click , Usefull For Attacking
+    private bool RotateToDirection = true; // Rotate To The Movement Direction
+    private bool RotateWithMouseClick = true; // Rotate To The Direction Of The Mouse When Click , Usefull For Attacking
 
     [Header("Jumping")]
     public float JumpPower = 22; // How High The Player Can Jump
